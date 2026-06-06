@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LS Clinic — Медицинский центр в Алматы</title>
+<style>
+:root{
+  --green:#1D9E75; --green-d:#0F6E56; --green-deep:#04342C; --green-l:#E1F5EE; --green-l2:#9FE1CB;
+  --red:#E24B4A; --red-d:#A32D2D; --red-l:#FCEBEB; --red-l2:#F09595;
+  --ink:#1c2421; --muted:#5f6b66; --line:#e6ebe8; --bg:#f6f8f7; --white:#fff;
+  --radius:14px; --radius-sm:10px; --shadow:0 4px 20px rgba(4,52,44,.07);
+  --maxw:1160px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Segoe UI',system-ui,-apple-system,Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 18px}
+.btn{display:inline-flex;align-items:center;gap:8px;border:none;cursor:pointer;font-size:15px;font-weight:600;padding:12px 22px;border-radius:999px;transition:.18s;font-family:inherit}
+.btn-red{background:var(--red);color:#fff}
+.btn-red:hover{background:var(--red-d)}
+.btn-green{background:var(--green);color:#fff}
+.btn-green:hover{background:var(--green-d)}
+.btn-ghost{background:transparent;border:1.5px solid var(--line);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--green)}
+.btn-sm{padding:8px 16px;font-size:14px}
+.section{padding:64px 0}
+.section h2{font-size:30px;font-weight:700;margin-bottom:8px}
+.section .lead{color:var(--muted);font-size:17px;margin-bottom:34px;max-width:640px}
+.eyebrow{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--green);margin-bottom:10px}
+
+/* HEADER */
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;height:68px}
+.logo{display:flex;align-items:center;gap:9px;font-size:21px;font-weight:800;letter-spacing:.5px;cursor:pointer;white-space:nowrap}
+.logo>span:last-child{line-height:1.05}
+.logo .dots{position:relative;width:26px;height:18px;flex:none}
+.logo .dots span{position:absolute;width:18px;height:18px;border-radius:50%}
+.logo .dots span:first-child{left:0;background:var(--green)}
+.logo .dots span:last-child{left:8px;background:var(--red);mix-blend-mode:multiply}
+.logo small{font-weight:500;font-size:11px;color:var(--muted);letter-spacing:2px;display:block;margin-top:-3px}
+nav.main{display:flex;align-items:center;gap:22px}
+nav.main a{font-size:15px;font-weight:500;color:var(--ink);cursor:pointer;padding:6px 0;border-bottom:2px solid transparent;transition:.15s}
+nav.main a:hover,nav.main a.active{color:var(--green-d);border-color:var(--green)}
+.head-right{display:flex;align-items:center;gap:14px}
+.phone{font-size:14px;font-weight:600;white-space:nowrap}
+.phone small{display:block;font-weight:400;font-size:11px;color:var(--muted)}
+.lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;font-size:13px;font-weight:600}
+.lang button{border:none;background:none;padding:6px 11px;cursor:pointer;color:var(--muted);font-family:inherit}
+.lang button.on{background:var(--green-l);color:var(--green-d)}
+.burger{display:none;background:none;border:none;font-size:26px;cursor:pointer;color:var(--ink)}
+
+/* HERO */
+.hero{position:relative;background:var(--green-deep);color:#fff;overflow:hidden}
+.hero .slides{position:relative;min-height:430px}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity .7s;display:flex;align-items:center;pointer-events:none}
+.slide.on{opacity:1;pointer-events:auto;position:relative}
+.slide .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center;width:100%;padding-top:46px;padding-bottom:46px}
+.slide-tag{display:inline-block;background:var(--green);color:#04342C;font-size:13px;font-weight:700;padding:5px 13px;border-radius:999px;margin-bottom:16px}
+.slide-tag.r{background:var(--red);color:#fff}
+.slide h1{font-size:40px;line-height:1.15;font-weight:800;margin-bottom:14px}
+.slide p{font-size:18px;color:var(--green-l2);margin-bottom:26px;max-width:480px}
+.slide-art{height:280px;border-radius:18px;background:linear-gradient(135deg,#0F6E56,#04342C);border:1px solid rgba(157,225,203,.25);display:flex;align-items:center;justify-content:center;font-size:120px;color:rgba(157,225,203,.5)}
+.dots-nav{display:flex;gap:8px;justify-content:center;padding:0 0 24px}
+.dots-nav button{width:9px;height:9px;border-radius:999px;border:none;background:rgba(255,255,255,.3);cursor:pointer;transition:.2s;padding:0}
+.dots-nav button.on{background:#fff;width:26px}
+.hero-arrow{position:absolute;top:45%;background:rgba(255,255,255,.13);border:none;color:#fff;width:42px;height:42px;border-radius:50%;cursor:pointer;font-size:20px;z-index:3}
+.hero-arrow:hover{background:rgba(255,255,255,.25)}
+.hero-arrow.prev{left:14px}.hero-arrow.next{right:14px}
+
+/* STREAM SPLIT */
+.streams{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.stream{border-radius:var(--radius);padding:34px;cursor:pointer;transition:.2s;border:2px solid transparent}
+.stream:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.stream.red{background:var(--red-l);border-color:var(--red-l2)}
+.stream.green{background:var(--green-l);border-color:var(--green-l2)}
+.stream .ico{font-size:42px;margin-bottom:14px;display:block}
+.stream.red .ico{color:var(--red-d)}.stream.green .ico{color:var(--green-d)}
+.stream h3{font-size:24px;margin-bottom:8px}
+.stream.red h3{color:var(--red-d)}.stream.green h3{color:var(--green-deep)}
+.stream p{font-size:15px}
+.stream.red p{color:var(--red-d)}.stream.green p{color:var(--green-d)}
+.stream .go{display:inline-flex;align-items:center;gap:6px;margin-top:16px;font-weight:700;font-size:15px}
+
+/* CARDS GRID */
+.grid{display:grid;gap:20px}
+.grid-2{grid-template-columns:1fr 1fr}
+.grid-3{grid-template-columns:repeat(3,1fr)}
+.grid-4{grid-template-columns:repeat(4,1fr)}
+.card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:24px;transition:.2s;cursor:pointer}
+.card:hover{box-shadow:var(--shadow);transform:translateY(-3px);border-color:var(--green-l2)}
+.card .ico{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:14px}
+.ico.g{background:var(--green-l);color:var(--green-d)}
+.ico.r{background:var(--red-l);color:var(--red-d)}
+.ico.a{background:#FAEEDA;color:#854F0B}
+.ico.b{background:#E6F1FB;color:#185FA5}
+.card h3{font-size:19px;margin-bottom:7px}
+.card p{font-size:14px;color:var(--muted)}
+.card ul{margin:12px 0 0;padding-left:18px;font-size:14px;color:var(--muted)}
+.card ul li{margin-bottom:4px}
+
+/* DOCTORS */
+.doc{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:.2s}
+.doc:hover{box-shadow:var(--shadow)}
+.doc .ph{height:180px;background:linear-gradient(135deg,var(--green-l),#cdeee0);display:flex;align-items:center;justify-content:center;font-size:48px;font-weight:700;color:var(--green-d)}
+.doc .body{padding:18px;display:flex;flex-direction:column;min-height:178px}
+.doc .body .btn{margin-top:auto}
+.doc h4{font-size:17px;margin-bottom:3px}
+.doc .spec{font-size:13px;color:var(--green-d);font-weight:600;margin-bottom:8px}
+.doc .meta{font-size:13px;color:var(--muted);margin-bottom:4px}
+.doc .price{font-size:15px;font-weight:700;margin:8px 0 12px}
+.doc .more-link{display:block;text-align:center;font-size:13px;font-weight:600;color:var(--green-d);margin-top:8px;cursor:pointer}
+.doc .more-link:hover{text-decoration:underline}
+.doc .ph,.doc h4{cursor:pointer}
+
+/* DOCTOR PROFILE */
+.dp-grid{display:grid;grid-template-columns:300px 1fr;gap:36px;align-items:start}
+.dp-photo{background:linear-gradient(135deg,var(--green-l),#cdeee0);border-radius:var(--radius);height:340px;display:flex;align-items:center;justify-content:center;font-size:88px;font-weight:700;color:var(--green-d)}
+.dp-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px;margin-top:16px}
+.dp-card .row{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--line);font-size:14px}
+.dp-card .row:last-child{border-bottom:none}
+.dp-card .row b{font-weight:700}
+.dp h1{font-size:32px;margin-bottom:6px}
+.dp .spec{font-size:17px;color:var(--green-d);font-weight:600;margin-bottom:18px}
+.dp h3{font-size:19px;margin:26px 0 10px}
+.dp p{font-size:16px;color:var(--muted)}
+.dp .serv-list{list-style:none;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:8px 22px;margin-top:6px}
+.dp .serv-list li{padding:8px 0 8px 26px;position:relative;font-size:15px;border-bottom:1px solid var(--line)}
+.dp .serv-list li::before{content:'✓';position:absolute;left:0;color:var(--green);font-weight:800}
+@media(max-width:760px){.dp-grid{grid-template-columns:1fr}.dp-photo{height:240px}.dp .serv-list{grid-template-columns:1fr}}
+
+/* OSMS */
+.steps{counter-reset:s;display:grid;gap:14px}
+.step{display:flex;gap:16px;background:var(--white);border:1px solid var(--line);border-left:4px solid var(--green);border-radius:var(--radius-sm);padding:18px 20px}
+.step .n{counter-increment:s;flex:none;width:34px;height:34px;border-radius:50%;background:var(--green-l);color:var(--green-d);font-weight:700;display:flex;align-items:center;justify-content:center}
+.step .n::before{content:counter(s)}
+.step h4{font-size:16px;margin-bottom:3px}
+.step p{font-size:14px;color:var(--muted)}
+.free-list{columns:2;gap:24px}
+.free-list li{list-style:none;padding:9px 0 9px 26px;position:relative;font-size:15px;break-inside:avoid;border-bottom:1px solid var(--line)}
+.free-list li::before{content:'✓';position:absolute;left:0;color:var(--green);font-weight:800}
+.qa{background:var(--white);border:1px solid var(--line);border-radius:var(--radius-sm);margin-bottom:10px;overflow:hidden}
+.qa summary{padding:16px 20px;font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;font-size:16px}
+.qa summary::-webkit-details-marker{display:none}
+.qa summary::after{content:'+';font-size:22px;color:var(--green);font-weight:400}
+.qa[open] summary::after{content:'–'}
+.qa .ans{padding:0 20px 18px;color:var(--muted);font-size:15px}
+
+/* PRICE */
+.price-tools{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:22px}
+.search{flex:1;min-width:220px;position:relative}
+.search input{width:100%;padding:13px 16px 13px 44px;border:1.5px solid var(--line);border-radius:999px;font-size:15px;font-family:inherit;outline:none}
+.search input:focus{border-color:var(--green)}
+.search::before{content:'🔍';position:absolute;left:16px;top:50%;transform:translateY(-50%);opacity:.5}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;min-height:46px}
+.tabs button{padding:11px 18px;border:1.5px solid var(--line);background:#fff;border-radius:999px;cursor:pointer;font-size:14px;font-weight:600;font-family:inherit;color:var(--muted);transition:.15s}
+.tabs button.on{background:var(--green-d);color:#fff;border-color:var(--green-d)}
+.price-table{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;min-height:392px}
+.price-row{display:grid;grid-template-columns:1fr auto auto;gap:14px;align-items:center;padding:15px 22px;border-bottom:1px solid var(--line)}
+.price-row:last-child{border-bottom:none}
+.price-row:hover{background:var(--bg)}
+.price-row .name{font-size:15px;font-weight:500}
+.price-row .cat{font-size:12px;color:var(--green-d);background:var(--green-l);padding:2px 9px;border-radius:999px;display:inline-block;margin-top:3px}
+.price-row .sum{font-weight:700;font-size:15px;white-space:nowrap}
+.price-empty{padding:34px;text-align:center;color:var(--muted)}
+
+/* FOOTER */
+footer{background:var(--green-deep);color:#cfe8de;padding:54px 0 26px;margin-top:20px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:32px;margin-bottom:34px}
+footer h5{color:#fff;font-size:15px;margin-bottom:14px;font-weight:700}
+footer a,footer p{display:block;color:#9fc7b8;font-size:14px;margin-bottom:9px;cursor:pointer}
+footer a:hover{color:#fff}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.12);padding-top:20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:13px;color:#7fb09e}
+
+/* WHATSAPP */
+.wa{position:fixed;right:22px;bottom:22px;width:60px;height:60px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;font-size:32px;box-shadow:0 6px 22px rgba(37,211,102,.45);z-index:60;cursor:pointer;transition:.2s}
+.wa:hover{transform:scale(1.08)}
+
+/* MODAL */
+.modal-bg{position:fixed;inset:0;background:rgba(4,52,44,.55);z-index:100;display:none;align-items:center;justify-content:center;padding:18px}
+.modal-bg.show{display:flex}
+.modal{background:#fff;border-radius:var(--radius);max-width:430px;width:100%;padding:32px;position:relative}
+.modal h3{font-size:24px;margin-bottom:6px}
+.modal p.sub{color:var(--muted);font-size:15px;margin-bottom:22px}
+.modal label{display:block;font-size:13px;font-weight:600;margin-bottom:6px;color:var(--ink)}
+.modal input,.modal textarea,.modal select{width:100%;padding:13px 15px;border:1.5px solid var(--line);border-radius:10px;font-size:15px;font-family:inherit;margin-bottom:16px;outline:none}
+.modal input:focus,.modal textarea:focus{border-color:var(--green)}
+.modal .close{position:absolute;top:14px;right:16px;background:none;border:none;font-size:26px;cursor:pointer;color:var(--muted);line-height:1}
+.modal .note{font-size:12px;color:var(--muted);margin-top:-6px;margin-bottom:14px}
+/* VALIDATION */
+input.invalid,textarea.invalid{border-color:var(--red) !important;background:#fff6f6}
+input.valid,textarea.valid{border-color:var(--green)}
+.err-msg{display:none;color:var(--red-d);font-size:12.5px;margin-top:-12px;margin-bottom:14px}
+.err-msg.show{display:block}
+.ok-msg{text-align:center;padding:14px 0}
+.ok-msg .big{font-size:54px;color:var(--green)}
+
+/* PAGES */
+.page{display:none}
+.page.active{display:block;animation:fade .3s}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.breadcrumb{font-size:14px;color:var(--muted);padding:18px 0 0}
+.breadcrumb span{cursor:pointer;color:var(--green-d)}
+.subhero{background:var(--green-l);padding:40px 0}
+.subhero.red{background:var(--red-l)}
+.subhero h1{font-size:36px;margin-bottom:10px}
+.subhero p{color:var(--muted);font-size:17px;max-width:620px}
+
+@media(max-width:880px){
+  nav.main{display:none}
+  .burger{display:block}
+  .grid-3,.grid-4{grid-template-columns:1fr 1fr}
+  .slide .wrap{grid-template-columns:1fr}
+  .slide-art{display:none}
+  .slide h1{font-size:30px}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .head-right .phone{display:none}
+  .free-list{columns:1}
+  .logo{flex:1 1 auto;min-width:0}
+  .head-right{flex:none;gap:10px}
+}
+@media(max-width:560px){
+  .streams,.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}
+  .section{padding:44px 0}
+  .section h2{font-size:24px}
+  .slide h1{font-size:26px}
+  .foot-grid{grid-template-columns:1fr}
+  .price-row{grid-template-columns:1fr auto;gap:8px}
+  .price-row .sum{grid-column:1}
+  .wrap{padding:0 14px}
+  .topbar{height:auto;min-height:60px;padding:8px 0}
+  .logo{font-size:16px;gap:7px}
+  .logo .dots{width:22px;height:16px}
+  .logo .dots span{width:15px;height:15px}
+  .logo small{font-size:9px;letter-spacing:1.5px;margin-top:-2px}
+  .head-right{gap:7px}
+  .lang button{padding:5px 8px;font-size:12px}
+  .btn-sm{padding:8px 12px;font-size:13px}
+  .burger{font-size:23px}
+}
+@media(max-width:380px){
+  .logo small{display:none}
+  .btn-red.btn-sm{padding:7px 11px;font-size:12px}
+}
+.mob-nav{display:none;position:fixed;inset:0;background:#fff;z-index:90;padding:80px 28px}
+.mob-nav.show{display:block}
+.mob-nav a{display:block;font-size:22px;font-weight:600;padding:16px 0;border-bottom:1px solid var(--line);cursor:pointer}
+.mob-nav .close{position:absolute;top:22px;right:24px;font-size:30px;background:none;border:none;cursor:pointer}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="wrap topbar">
+    <div class="logo" onclick="go('home')">
+      <span class="dots"><span></span><span></span></span>
+      <span>LS Clinic<small>АЛМАТЫ</small></span>
+    </div>
+    <nav class="main">
+      <a onclick="go('home')" data-i18n="nav_home">Главная</a>
+      <a onclick="go('surgery')" data-i18n="nav_paid">Платные услуги</a>
+      <a onclick="go('osms')" data-i18n="nav_osms">ОСМС</a>
+      <a onclick="go('doctors')" data-i18n="nav_doctors">Врачи</a>
+      <a onclick="go('price')" data-i18n="nav_price">Прайс</a>
+      <a onclick="go('director')" data-i18n="nav_director">Письмо директору</a>
+    </nav>
+    <div class="head-right">
+      <div class="phone">+7 (727) 350-30-30<small data-i18n="callnow">Звонок бесплатный</small></div>
+      <div class="lang">
+        <button class="on" onclick="setLang('ru',this)">RU</button>
+        <button onclick="setLang('kz',this)">KZ</button>
+      </div>
+      <button class="btn btn-red btn-sm" onclick="openForm()" data-i18n="book">Записаться</button>
+      <button class="burger" onclick="toggleMob(true)">☰</button>
+    </div>
+  </div>
+</header>
+
+<!-- MOBILE NAV -->
+<div class="mob-nav" id="mobNav">
+  <button class="close" onclick="toggleMob(false)">✕</button>
+  <a onclick="go('home');toggleMob(false)" data-i18n="nav_home">Главная</a>
+  <a onclick="go('surgery');toggleMob(false)" data-i18n="nav_paid">Платные услуги</a>
+  <a onclick="go('osms');toggleMob(false)" data-i18n="nav_osms">ОСМС</a>
+  <a onclick="go('doctors');toggleMob(false)" data-i18n="nav_doctors">Врачи</a>
+  <a onclick="go('price');toggleMob(false)" data-i18n="nav_price">Прайс</a>
+  <a onclick="go('director');toggleMob(false)" data-i18n="nav_director">Письмо директору</a>
+</div>
+
+<!-- ============ HOME ============ -->
+<div class="page active" id="page-home">
+
+  <!-- HERO SLIDER -->
+  <section class="hero">
+    <button class="hero-arrow prev" onclick="slide(-1)">‹</button>
+    <button class="hero-arrow next" onclick="slide(1)">›</button>
+    <div class="slides" id="slides">
+      <div class="slide on">
+        <div class="wrap">
+          <div>
+            <span class="slide-tag" data-i18n="s1_tag">Травматология и ортопедия</span>
+            <h1 data-i18n="s1_h">Экспертные решения для вашего движения</h1>
+            <p data-i18n="s1_p">Современная диагностика и хирургия суставов командой опытных врачей LS Clinic.</p>
+            <button class="btn btn-red" onclick="openForm()" data-i18n="book_appt">Записаться на приём</button>
+          </div>
+          <div class="slide-art">🦴</div>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="wrap">
+          <div>
+            <span class="slide-tag" data-i18n="s2_tag">Гинекология</span>
+            <h1 data-i18n="s2_h">Хирургическая гинекология: экспертность и бережный подход</h1>
+            <p data-i18n="s2_p">Малотравматичные операции и внимательное сопровождение на каждом этапе.</p>
+            <button class="btn btn-red" onclick="openForm()" data-i18n="book_appt">Записаться на приём</button>
+          </div>
+          <div class="slide-art">🌸</div>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="wrap">
+          <div>
+            <span class="slide-tag" data-i18n="s3_tag">Урология</span>
+            <h1 data-i18n="s3_h">Урологические операции на уровне ведущих клиник</h1>
+            <p data-i18n="s3_p">Точная диагностика и современные методики лечения для мужчин и женщин.</p>
+            <button class="btn btn-red" onclick="openForm()" data-i18n="book_appt">Записаться на приём</button>
+          </div>
+          <div class="slide-art">⚕️</div>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="wrap">
+          <div>
+            <span class="slide-tag" data-i18n="s4_tag">Материнство</span>
+            <h1 data-i18n="s4_h">Ведение беременности под защитой профессионалов</h1>
+            <p data-i18n="s4_p">Полное сопровождение беременности с заботой о маме и малыше.</p>
+            <button class="btn btn-red" onclick="openForm()" data-i18n="book_appt">Записаться на приём</button>
+          </div>
+          <div class="slide-art">🤰</div>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="wrap">
+          <div>
+            <span class="slide-tag r" data-i18n="s5_tag">Lifestyle-медицина</span>
+            <h1 data-i18n="s5_h">Похудение с медицинским контролем (Ozempic / Mounjaro)</h1>
+            <p data-i18n="s5_p">Программы снижения веса под наблюдением эндокринолога и индивидуальным планом.</p>
+            <button class="btn btn-red" onclick="openForm()" data-i18n="book_appt">Записаться на приём</button>
+          </div>
+          <div class="slide-art">💉</div>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="wrap">
+          <div>
+            <span class="slide-tag" data-i18n="s6_tag">ОСМС</span>
+            <h1 data-i18n="s6_h">Прикрепись к нам по ОСМС — частный сервис бесплатно</h1>
+            <p data-i18n="s6_p">Получайте помощь по госстраховке в комфорте частной клиники. Прикрепление онлайн за 5 минут.</p>
+            <button class="btn btn-green" onclick="go('osms')" data-i18n="how_attach">Как прикрепиться</button>
+          </div>
+          <div class="slide-art">🛡️</div>
+        </div>
+      </div>
+    </div>
+    <div class="dots-nav" id="dotsNav"></div>
+  </section>
+
+  <!-- STREAM SPLIT -->
+  <section class="section">
+    <div class="wrap">
+      <div class="streams">
+        <div class="stream red" onclick="go('surgery')">
+          <span class="ico">🩺</span>
+          <h3 data-i18n="stream_paid_h">Платные услуги и чекапы</h3>
+          <p data-i18n="stream_paid_p">Операции, программы здоровья, анализы и узкие специалисты без очередей.</p>
+          <span class="go" style="color:var(--red-d)" data-i18n="more">Перейти →</span>
+        </div>
+        <div class="stream green" onclick="go('osms')">
+          <span class="ico">🛡️</span>
+          <h3 data-i18n="stream_osms_h">Прикрепление и ОСМС</h3>
+          <p data-i18n="stream_osms_p">Бесплатная медицинская помощь по госстраховке с сервисом частной клиники.</p>
+          <span class="go" style="color:var(--green-d)" data-i18n="more_g">Перейти →</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIRECTIONS -->
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <span class="eyebrow" data-i18n="dir_eye">Платные направления</span>
+      <h2 data-i18n="dir_h">Выберите медицинское направление</h2>
+      <p class="lead" data-i18n="dir_p">Каждое направление — это команда профильных врачей, современное оборудование и понятные цены.</p>
+      <div class="grid grid-4">
+        <div class="card" onclick="go('surgery')">
+          <div class="ico r">🦴</div>
+          <h3 data-i18n="d1_h">Хирургический центр</h3>
+          <ul><li data-i18n="d1_1">Травматология и ортопедия</li><li data-i18n="d1_2">Общая хирургия</li><li data-i18n="d1_3">Гинекологические операции</li><li data-i18n="d1_4">Урологические операции</li></ul>
+        </div>
+        <div class="card" onclick="go('surgery')">
+          <div class="ico g">👶</div>
+          <h3 data-i18n="d2_h">Материнство и детство</h3>
+          <ul><li data-i18n="d2_1">Ведение беременности</li><li data-i18n="d2_2">Детская реабилитация</li><li data-i18n="d2_3">Коррекция ЗПР и ЗРР</li></ul>
+        </div>
+        <div class="card" onclick="go('surgery')">
+          <div class="ico a">💧</div>
+          <h3 data-i18n="d3_h">Lifestyle-медицина</h3>
+          <ul><li data-i18n="d3_1">IV-терапия (капельницы)</li><li data-i18n="d3_2">Эндокринология и похудение</li><li data-i18n="d3_3">Узкие специалисты</li></ul>
+        </div>
+        <div class="card" onclick="go('surgery')">
+          <div class="ico b">🏢</div>
+          <h3 data-i18n="d4_h">B2B и справки</h3>
+          <ul><li data-i18n="d4_1">Профосмотры для компаний</li><li data-i18n="d4_2">Корпоративное обслуживание</li><li data-i18n="d4_3">Справки 075, 086 и др.</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOCTORS PREVIEW -->
+  <section class="section" style="background:#fff;padding-top:64px">
+    <div class="wrap">
+      <span class="eyebrow" data-i18n="doc_eye">Наш капитал</span>
+      <h2 data-i18n="doc_h">Врачи, которым доверяют</h2>
+      <p class="lead" data-i18n="doc_p">Опытные специалисты с многолетней практикой. Запись на консультацию — в один клик.</p>
+      <div class="grid grid-4" id="docGridHome"></div>
+      <div style="margin-top:26px"><button class="btn btn-ghost" onclick="go('doctors')" data-i18n="all_doctors">Все врачи →</button></div>
+    </div>
+  </section>
+
+  <!-- PRICE PREVIEW -->
+  <section class="section">
+    <div class="wrap">
+      <span class="eyebrow" data-i18n="price_eye">Прозрачные цены</span>
+      <h2 data-i18n="price_h">Интерактивный прайс</h2>
+      <p class="lead" data-i18n="price_p">Найдите услугу через поиск и закажите обратный звонок прямо из таблицы.</p>
+      <div style="margin-top:6px"><button class="btn btn-green" onclick="go('price')" data-i18n="open_price">Открыть полный прайс →</button></div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ SURGERY / DIRECTION ============ -->
+<div class="page" id="page-surgery">
+  <div class="subhero red">
+    <div class="wrap">
+      <div class="breadcrumb"><span onclick="go('home')" data-i18n="nav_home">Главная</span> / <span data-i18n="nav_paid">Платные услуги</span></div>
+      <h1 style="margin-top:10px" data-i18n="surg_h">Хирургический центр LS Clinic</h1>
+      <p data-i18n="surg_p">Травматология и ортопедия, общая хирургия, гинекологические и урологические операции. Малотравматичные методики, собственный стационар и сопровождение на всех этапах.</p>
+      <div style="margin-top:20px"><button class="btn btn-red" onclick="openForm()" data-i18n="book_appt">Записаться на приём</button></div>
+    </div>
+  </div>
+  <section class="section">
+    <div class="wrap">
+      <div class="grid grid-2">
+        <div class="card" style="cursor:default">
+          <div class="ico r">🦴</div><h3 data-i18n="surg1_h">Травматология и ортопедия</h3>
+          <p data-i18n="surg1_p">Эндопротезирование суставов, артроскопия, лечение травм и спортивных повреждений.</p>
+        </div>
+        <div class="card" style="cursor:default">
+          <div class="ico r">🔬</div><h3 data-i18n="surg2_h">Общая хирургия</h3>
+          <p data-i18n="surg2_p">Плановые и малоинвазивные операции с быстрым восстановлением.</p>
+        </div>
+        <div class="card" style="cursor:default">
+          <div class="ico r">🌸</div><h3 data-i18n="surg3_h">Гинекологические операции</h3>
+          <p data-i18n="surg3_p">Бережная хирургия с акцентом на сохранение здоровья и комфорт пациентки.</p>
+        </div>
+        <div class="card" style="cursor:default">
+          <div class="ico r">⚕️</div><h3 data-i18n="surg4_h">Урологические операции</h3>
+          <p data-i18n="surg4_p">Современные методы лечения урологических заболеваний у мужчин и женщин.</p>
+        </div>
+      </div>
+      <h2 style="margin:48px 0 22px" data-i18n="surg_docs">Врачи направления</h2>
+      <div class="grid grid-3" id="docGridSurg"></div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ OSMS ============ -->
+<div class="page" id="page-osms">
+  <div class="subhero">
+    <div class="wrap">
+      <div class="breadcrumb"><span onclick="go('home')" data-i18n="nav_home">Главная</span> / <span data-i18n="nav_osms">ОСМС</span></div>
+      <h1 style="margin-top:10px" data-i18n="osms_h">Прикрепление и ОСМС</h1>
+      <p data-i18n="osms_p">Прикрепитесь к LS Clinic по ОСМС и получайте бесплатную медицинскую помощь с сервисом частной клиники.</p>
+      <div style="margin-top:20px"><button class="btn btn-green" onclick="openForm()" data-i18n="osms_help">Помощь с прикреплением</button></div>
+    </div>
+  </div>
+  <section class="section">
+    <div class="wrap">
+      <span class="eyebrow" data-i18n="osms_steps_eye">Инструкция</span>
+      <h2 data-i18n="osms_steps_h">Онлайн-прикрепление через eGov за 5 минут</h2>
+      <div class="steps" style="margin-top:24px">
+        <div class="step"><div class="n"></div><div><h4 data-i18n="st1_h">Войдите на eGov.kz</h4><p data-i18n="st1_p">Авторизуйтесь через ЭЦП или одноразовый пароль по номеру телефона.</p></div></div>
+        <div class="step"><div class="n"></div><div><h4 data-i18n="st2_h">Найдите услугу прикрепления</h4><p data-i18n="st2_p">«Прикрепление к организации первичной медико-санитарной помощи».</p></div></div>
+        <div class="step"><div class="n"></div><div><h4 data-i18n="st3_h">Выберите LS Clinic</h4><p data-i18n="st3_p">Укажите нашу клинику в списке поликлиник вашего города.</p></div></div>
+        <div class="step"><div class="n"></div><div><h4 data-i18n="st4_h">Подтвердите заявку</h4><p data-i18n="st4_p">Готово — прикрепление вступает в силу, мы свяжемся с вами для записи.</p></div></div>
+      </div>
+    </div>
+  </section>
+  <section class="section" style="background:#fff;padding-top:0">
+    <div class="wrap">
+      <span class="eyebrow" data-i18n="free_eye">Бесплатно по ОСМС</span>
+      <h2 data-i18n="free_h">Список бесплатных услуг</h2>
+      <ul class="free-list" style="margin-top:20px;padding:0">
+        <li data-i18n="f1">Приём терапевта и педиатра</li>
+        <li data-i18n="f2">Приём узких специалистов по направлению</li>
+        <li data-i18n="f3">Лабораторные анализы по показаниям</li>
+        <li data-i18n="f4">УЗИ-диагностика по направлению</li>
+        <li data-i18n="f5">Вакцинация по нацкалендарю</li>
+        <li data-i18n="f6">Ведение беременности</li>
+        <li data-i18n="f7">Наблюдение хронических заболеваний</li>
+        <li data-i18n="f8">Профилактические осмотры</li>
+      </ul>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap" style="max-width:820px">
+      <span class="eyebrow" data-i18n="qa_eye">Жиі қойылатын сұрақтар</span>
+      <h2 data-i18n="qa_h">Вопросы и ответы: права пациента</h2>
+      <div style="margin-top:22px">
+        <details class="qa"><summary data-i18n="q1">Что я получаю бесплатно по ОСМС?</summary><div class="ans" data-i18n="a1">Все услуги из гарантированного объёма: приёмы врачей, анализы и диагностику по направлению, ведение беременности и наблюдение хронических болезней.</div></details>
+        <details class="qa"><summary data-i18n="q2">За что нужно платить?</summary><div class="ans" data-i18n="a2">Платными остаются услуги вне программы ОСМС: операции по желанию, расширенные чекапы, IV-терапия, эстетические процедуры и приёмы без направления.</div></details>
+        <details class="qa"><summary data-i18n="q3">Можно ли прикрепиться, если я уже в другой поликлинике?</summary><div class="ans" data-i18n="a3">Да. Открепление происходит автоматически при подаче новой заявки через eGov. Менять поликлинику можно один раз в год.</div></details>
+        <details class="qa"><summary data-i18n="q4">Как записаться на приём после прикрепления?</summary><div class="ans" data-i18n="a4">Позвоните нам или оставьте заявку на сайте — администратор подберёт удобное время к нужному специалисту.</div></details>
+      </div>
+    </div>
+  </section>
+  <section class="section" style="background:#fff;padding-top:0">
+    <div class="wrap">
+      <span class="eyebrow" data-i18n="blog_eye">Блог главного врача</span>
+      <h2 data-i18n="blog_h">Что важно знать о вашем здоровье</h2>
+      <div class="grid grid-3" style="margin-top:22px">
+        <div class="card" style="cursor:default"><h3 data-i18n="b1_h">Как выбрать поликлинику по ОСМС</h3><p data-i18n="b1_p">Разбираем критерии выбора и права пациента простыми словами.</p></div>
+        <div class="card" style="cursor:default"><h3 data-i18n="b2_h">Профилактика — лучшее лечение</h3><p data-i18n="b2_p">Какие обследования стоит проходить ежегодно и почему.</p></div>
+        <div class="card" style="cursor:default"><h3 data-i18n="b3_h">Здоровье ребёнка: чек-лист</h3><p data-i18n="b3_p">Календарь осмотров и прививок для детей разного возраста.</p></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ DOCTORS ============ -->
+<div class="page" id="page-doctors">
+  <div class="subhero">
+    <div class="wrap">
+      <div class="breadcrumb"><span onclick="go('home')" data-i18n="nav_home">Главная</span> / <span data-i18n="nav_doctors">Врачи</span></div>
+      <h1 style="margin-top:10px" data-i18n="docs_h">Наши врачи</h1>
+      <p data-i18n="docs_p">Команда специалистов LS Clinic — опыт, внимание и современные методы лечения.</p>
+    </div>
+  </div>
+  <section class="section">
+    <div class="wrap"><div class="grid grid-4" id="docGridAll"></div></div>
+  </section>
+</div>
+
+<!-- ============ DOCTOR PROFILE ============ -->
+<div class="page" id="page-doctor">
+  <div class="subhero">
+    <div class="wrap">
+      <div class="breadcrumb"><span onclick="go('home')" data-i18n="nav_home">Главная</span> / <span onclick="go('doctors')" data-i18n="nav_doctors">Врачи</span> / <span id="dpCrumb"></span></div>
+    </div>
+  </div>
+  <section class="section">
+    <div class="wrap" id="docProfile"></div>
+  </section>
+</div>
+
+<!-- ============ PRICE ============ -->
+<div class="page" id="page-price">
+  <div class="subhero">
+    <div class="wrap">
+      <div class="breadcrumb"><span onclick="go('home')" data-i18n="nav_home">Главная</span> / <span data-i18n="nav_price">Прайс</span></div>
+      <h1 style="margin-top:10px" data-i18n="price_page_h">Интерактивный прайс</h1>
+      <p data-i18n="price_page_p">Найдите услугу и закажите обратный звонок прямо из таблицы.</p>
+    </div>
+  </div>
+  <section class="section">
+    <div class="wrap">
+      <div class="price-tools">
+        <div class="search"><input type="text" id="priceSearch" oninput="renderPrice()" data-i18n-ph="ph_search" placeholder="Поиск услуги или анализа..."></div>
+      </div>
+      <div class="tabs" id="priceTabs"></div>
+      <div class="price-table" id="priceTable" style="margin-top:18px"></div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ DIRECTOR LETTER ============ -->
+<div class="page" id="page-director">
+  <div class="subhero red">
+    <div class="wrap">
+      <div class="breadcrumb"><span onclick="go('home')" data-i18n="nav_home">Главная</span> / <span data-i18n="nav_director">Письмо директору</span></div>
+      <h1 style="margin-top:10px" data-i18n="dir_page_h">Письмо директору</h1>
+      <p data-i18n="dir_page_p">Ваше мнение помогает нам становиться лучше. Расскажите о качестве обслуживания — обращение читает лично директор клиники.</p>
+    </div>
+  </div>
+  <section class="section">
+    <div class="wrap" style="max-width:620px">
+      <form onsubmit="submitDirector(event)" novalidate style="background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px">
+        <label data-i18n="lbl_name">Ваше имя</label>
+        <input id="dName" data-val="name" style="width:100%;padding:13px 15px;border:1.5px solid var(--line);border-radius:10px;font-size:15px;font-family:inherit;margin-bottom:16px">
+        <div class="err-msg" id="dName-err"></div>
+        <label data-i18n="lbl_phone">Телефон</label>
+        <input id="dPhone" data-val="phone" type="tel" inputmode="tel" placeholder="+7 (___) ___-__-__" style="width:100%;padding:13px 15px;border:1.5px solid var(--line);border-radius:10px;font-size:15px;font-family:inherit;margin-bottom:16px">
+        <div class="err-msg" id="dPhone-err"></div>
+        <label data-i18n="lbl_msg">Сообщение</label>
+        <textarea id="dMsg" data-val="msg" rows="5" style="width:100%;padding:13px 15px;border:1.5px solid var(--line);border-radius:10px;font-size:15px;font-family:inherit;margin-bottom:16px"></textarea>
+        <div class="err-msg" id="dMsg-err"></div>
+        <button type="submit" class="btn btn-red" style="width:100%;justify-content:center" data-i18n="send">Отправить</button>
+      </form>
+    </div>
+  </section>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="logo" style="color:#fff;margin-bottom:14px"><span class="dots"><span></span><span></span></span><span style="color:#fff">LS Clinic</span></div>
+        <p style="color:#9fc7b8" data-i18n="foot_about">Многопрофильная клиника в Алматы. Платные направления и помощь по ОСМС.</p>
+      </div>
+      <div>
+        <h5 data-i18n="foot_menu">Разделы</h5>
+        <a onclick="go('surgery')" data-i18n="nav_paid">Платные услуги</a>
+        <a onclick="go('osms')" data-i18n="nav_osms">ОСМС</a>
+        <a onclick="go('doctors')" data-i18n="nav_doctors">Врачи</a>
+        <a onclick="go('price')" data-i18n="nav_price">Прайс</a>
+      </div>
+      <div>
+        <h5 data-i18n="foot_help">Сервис</h5>
+        <a onclick="openForm()" data-i18n="book_appt">Записаться на приём</a>
+        <a onclick="go('director')" data-i18n="nav_director">Письмо директору</a>
+        <a onclick="go('osms')" data-i18n="how_attach">Как прикрепиться</a>
+      </div>
+      <div>
+        <h5 data-i18n="foot_contacts">Контакты</h5>
+        <p>г. Алматы, ул. Медицинская, 1</p>
+        <a href="tel:+77273503030">+7 (727) 350-30-30</a>
+        <p data-i18n="foot_hours">Ежедневно 08:00 — 20:00</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 LS Clinic. <span data-i18n="rights">Все права защищены.</span></span>
+      <span data-i18n="license">Лицензия на медицинскую деятельность №ДА-00000</span>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP -->
+<a class="wa" href="https://wa.me/77273503030" target="_blank" aria-label="WhatsApp">
+  <svg width="32" height="32" viewBox="0 0 24 24" fill="#fff"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.06c-.24.68-1.42 1.31-1.96 1.36-.5.05-.99.24-3.32-.69-2.81-1.11-4.61-3.97-4.75-4.16-.14-.19-1.14-1.52-1.14-2.9 0-1.38.72-2.06.98-2.34.26-.28.56-.35.75-.35.19 0 .37 0 .54.01.17.01.41-.07.64.49.24.56.81 1.94.88 2.08.07.14.12.3.02.49-.09.19-.14.3-.28.46-.14.16-.29.36-.42.48-.14.14-.28.29-.12.57.16.28.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.21 1.37.28.14.44.12.6-.07.16-.19.69-.81.87-1.08.18-.28.37-.23.62-.14.25.09 1.61.76 1.89.9.28.14.46.21.53.32.07.12.07.66-.17 1.34z"/></svg>
+</a>
+
+<!-- BOOKING MODAL -->
+<div class="modal-bg" id="modal">
+  <div class="modal">
+    <button class="close" onclick="closeForm()">✕</button>
+    <div id="formBody">
+      <h3 data-i18n="form_h">Запись на приём</h3>
+      <p class="sub" data-i18n="form_sub">Оставьте контакты — администратор перезвонит и подберёт удобное время.</p>
+      <form onsubmit="submitForm(event)" novalidate>
+        <label data-i18n="lbl_name">Ваше имя</label>
+        <input id="fName" data-val="name">
+        <div class="err-msg" id="fName-err"></div>
+        <label data-i18n="lbl_phone">Телефон</label>
+        <input type="tel" id="fPhone" data-val="phone" inputmode="tel" placeholder="+7 (___) ___-__-__">
+        <div class="err-msg" id="fPhone-err"></div>
+        <p class="note" data-i18n="form_note">Заявка отправляется на почту администрации и в amoCRM.</p>
+        <button type="submit" class="btn btn-red" style="width:100%;justify-content:center" data-i18n="send_req">Отправить заявку</button>
+      </form>
+    </div>
+    <div id="formOk" class="ok-msg" style="display:none">
+      <div class="big">✓</div>
+      <h3 data-i18n="ok_h">Заявка принята!</h3>
+      <p class="sub" data-i18n="ok_p">Мы перезвоним вам в ближайшее время.</p>
+      <button class="btn btn-green" onclick="closeForm()" style="justify-content:center" data-i18n="ok_btn">Хорошо</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ---------- DATA ---------- */
+var DOCTORS=[
+  {init:'АК',name:{ru:'Алихан Касымов',kz:'Әлихан Қасымов'},spec:{ru:'Травматолог-ортопед',kz:'Травматолог-ортопед'},exp:{ru:'стаж 15 лет',kz:'15 жыл тәжірибе'},price:'8 000 ₸',tag:'surg',
+   cat:{ru:'Хирургический центр',kz:'Хирургиялық орталық'},
+   bio:{ru:'Специализируется на эндопротезировании крупных суставов и артроскопических операциях. Провёл более 2000 успешных вмешательств.',kz:'Ірі буындарды эндопротездеу және артроскопиялық операцияларға маманданған. 2000-нан астам сәтті ота жасаған.'},
+   edu:{ru:'КазНМУ им. С.Д. Асфендиярова, стажировка в Германии (ортопедия)',kz:'С.Д. Асфендияров атындағы ҚазҰМУ, Германиядағы тағылымдама (ортопедия)'},
+   serv:{ru:['Эндопротезирование суставов','Артроскопия','Лечение спортивных травм','Консервативное лечение'],kz:['Буындарды эндопротездеу','Артроскопия','Спорттық жарақаттарды емдеу','Консервативті емдеу']}},
+  {init:'ГС',name:{ru:'Гульнара Серикова',kz:'Гүлнара Серікова'},spec:{ru:'Хирург-гинеколог',kz:'Хирург-гинеколог'},exp:{ru:'стаж 12 лет',kz:'12 жыл тәжірибе'},price:'9 000 ₸',tag:'surg',
+   cat:{ru:'Хирургический центр',kz:'Хирургиялық орталық'},
+   bio:{ru:'Эксперт по малотравматичной хирургии в гинекологии. Бережный подход и максимальное сохранение здоровья пациентки.',kz:'Гинекологиядағы аз жарақатты хирургия маманы. Ұқыпты көзқарас және пациент денсаулығын барынша сақтау.'},
+   edu:{ru:'КазНМУ, ординатура по оперативной гинекологии',kz:'ҚазҰМУ, оперативті гинекология бойынша ординатура'},
+   serv:{ru:['Лапароскопические операции','Лечение миомы','Гистероскопия','Ведение пациенток'],kz:['Лапароскопиялық операциялар','Миоманы емдеу','Гистероскопия','Пациенттерді жүргізу']}},
+  {init:'УБ',name:{ru:'Улан Байжанов',kz:'Ұлан Байжанов'},spec:{ru:'Уролог',kz:'Уролог'},exp:{ru:'стаж 18 лет',kz:'18 жыл тәжірибе'},price:'8 500 ₸',tag:'surg',
+   cat:{ru:'Хирургический центр',kz:'Хирургиялық орталық'},
+   bio:{ru:'Ведущий уролог клиники. Современные методы диагностики и лечения урологических заболеваний у мужчин и женщин.',kz:'Клиниканың жетекші урологы. Ерлер мен әйелдердегі урологиялық ауруларды диагностикалау мен емдеудің заманауи әдістері.'},
+   edu:{ru:'КазНМУ, кандидат медицинских наук',kz:'ҚазҰМУ, медицина ғылымдарының кандидаты'},
+   serv:{ru:['Урологические операции','Лечение МКБ','Диагностика','Андрология'],kz:['Урологиялық операциялар','ЗТА емдеу','Диагностика','Андрология']}},
+  {init:'ДН',name:{ru:'Дина Нурланова',kz:'Дина Нұрланова'},spec:{ru:'Эндокринолог',kz:'Эндокринолог'},exp:{ru:'стаж 10 лет',kz:'10 жыл тәжірибе'},price:'9 500 ₸',tag:'life',
+   cat:{ru:'Lifestyle-медицина',kz:'Lifestyle-медицина'},
+   bio:{ru:'Специалист по снижению веса с медицинским контролем и терапии Ozempic/Mounjaro. Индивидуальные программы коррекции веса.',kz:'Медициналық бақылаумен салмақ түсіру және Ozempic/Mounjaro терапиясы маманы. Салмақты түзетудің жеке бағдарламалары.'},
+   edu:{ru:'КазНМУ, специализация по эндокринологии',kz:'ҚазҰМУ, эндокринология бойынша мамандану'},
+   serv:{ru:['Программы похудения','Терапия Ozempic/Mounjaro','Лечение диабета','Гормональная коррекция'],kz:['Салмақ түсіру бағдарламалары','Ozempic/Mounjaro терапиясы','Диабетті емдеу','Гормоналды түзету']}},
+  {init:'АЖ',name:{ru:'Айгерим Жумабаева',kz:'Айгерім Жұмабаева'},spec:{ru:'Акушер-гинеколог',kz:'Акушер-гинеколог'},exp:{ru:'стаж 14 лет',kz:'14 жыл тәжірибе'},price:'9 000 ₸',tag:'mom',
+   cat:{ru:'Материнство и детство',kz:'Аналық және балалық'},
+   bio:{ru:'Ведёт беременность на всех сроках с заботой о маме и малыше. Полное сопровождение и современная диагностика.',kz:'Ана мен сәбиге қамқорлықпен жүктіліктің барлық кезеңдерін жүргізеді. Толық сүйемелдеу және заманауи диагностика.'},
+   edu:{ru:'КазНМУ, ординатура по акушерству и гинекологии',kz:'ҚазҰМУ, акушерлік және гинекология бойынша ординатура'},
+   serv:{ru:['Ведение беременности','УЗИ-скрининг','Планирование беременности','Послеродовое наблюдение'],kz:['Жүктілікті жүргізу','УДЗ-скрининг','Жүктілікті жоспарлау','Босанғаннан кейінгі бақылау']}},
+  {init:'СМ',name:{ru:'Сауле Мукашева',kz:'Сәуле Мұқашева'},spec:{ru:'Педиатр-реабилитолог',kz:'Педиатр-реабилитолог'},exp:{ru:'стаж 16 лет',kz:'16 жыл тәжірибе'},price:'8 000 ₸',tag:'mom',
+   cat:{ru:'Материнство и детство',kz:'Аналық және балалық'},
+   bio:{ru:'Детская реабилитация, коррекция ЗПР и ЗРР. Индивидуальный план развития для каждого ребёнка.',kz:'Балалар реабилитациясы, ПДА және СДА түзету. Әр балаға жеке даму жоспары.'},
+   edu:{ru:'КазНМУ, педиатрия и детская неврология',kz:'ҚазҰМУ, педиатрия және балалар неврологиясы'},
+   serv:{ru:['Коррекция ЗПР и ЗРР','Детская реабилитация','Раннее развитие','Консультации родителей'],kz:['ПДА және СДА түзету','Балалар реабилитациясы','Ерте даму','Ата-аналарға кеңес']}},
+  {init:'ЕТ',name:{ru:'Ербол Темиров',kz:'Ербол Теміров'},spec:{ru:'Хирург общей практики',kz:'Жалпы хирург'},exp:{ru:'стаж 20 лет',kz:'20 жыл тәжірибе'},price:'8 500 ₸',tag:'surg',
+   cat:{ru:'Хирургический центр',kz:'Хирургиялық орталық'},
+   bio:{ru:'Плановые и малоинвазивные операции с быстрым восстановлением. Большой опыт в общей хирургии.',kz:'Жоспарлы және аз инвазивті операциялар, жылдам қалпына келу. Жалпы хирургиядағы үлкен тәжірибе.'},
+   edu:{ru:'КазНМУ, высшая квалификационная категория',kz:'ҚазҰМУ, жоғары біліктілік санаты'},
+   serv:{ru:['Общая хирургия','Малоинвазивные операции','Удаление новообразований','Послеоперационное ведение'],kz:['Жалпы хирургия','Аз инвазивті операциялар','Ісіктерді алып тастау','Отадан кейінгі бақылау']}},
+  {init:'МА',name:{ru:'Мадина Абенова',kz:'Мәдина Әбенова'},spec:{ru:'Терапевт',kz:'Терапевт'},exp:{ru:'стаж 9 лет',kz:'9 жыл тәжірибе'},price:'7 000 ₸',tag:'life',
+   cat:{ru:'Lifestyle-медицина',kz:'Lifestyle-медицина'},
+   bio:{ru:'Первичный приём, чекапы и наблюдение хронических заболеваний. Внимательный подход к каждому пациенту.',kz:'Алғашқы қабылдау, чекаптар және созылмалы ауруларды бақылау. Әр пациентке мұқият көзқарас.'},
+   edu:{ru:'КазНМУ, сертификат по внутренним болезням',kz:'ҚазҰМУ, ішкі аурулар бойынша сертификат'},
+   serv:{ru:['Первичный приём','Чекапы','Наблюдение хронических болезней','IV-терапия'],kz:['Алғашқы қабылдау','Чекаптар','Созылмалы ауруларды бақылау','IV-терапия']}}
+];
+var PRICE=[
+  {n:{ru:'Консультация травматолога-ортопеда',kz:'Травматолог-ортопед кеңесі'},cat:'cons',sum:'от 8 000 ₸'},
+  {n:{ru:'Консультация гинеколога',kz:'Гинеколог кеңесі'},cat:'cons',sum:'от 9 000 ₸'},
+  {n:{ru:'Консультация уролога',kz:'Уролог кеңесі'},cat:'cons',sum:'от 8 500 ₸'},
+  {n:{ru:'Консультация эндокринолога',kz:'Эндокринолог кеңесі'},cat:'cons',sum:'от 9 500 ₸'},
+  {n:{ru:'Общий анализ крови',kz:'Жалпы қан анализі'},cat:'lab',sum:'от 2 500 ₸'},
+  {n:{ru:'Биохимия крови (расширенная)',kz:'Қан биохимиясы'},cat:'lab',sum:'от 12 000 ₸'},
+  {n:{ru:'Гормональная панель',kz:'Гормоналды панель'},cat:'lab',sum:'от 15 000 ₸'},
+  {n:{ru:'УЗИ органов малого таза',kz:'Кіші жамбас мүшелерінің УДЗ'},cat:'lab',sum:'от 6 500 ₸'},
+  {n:{ru:'Артроскопия коленного сустава',kz:'Тізе буынының артроскопиясы'},cat:'op',sum:'от 350 000 ₸'},
+  {n:{ru:'Лапароскопическая операция',kz:'Лапароскопиялық операция'},cat:'op',sum:'от 280 000 ₸'},
+  {n:{ru:'Урологическая операция',kz:'Урологиялық операция'},cat:'op',sum:'от 250 000 ₸'},
+  {n:{ru:'Программа ведения беременности',kz:'Жүктілікті жүргізу бағдарламасы'},cat:'prog',sum:'от 320 000 ₸'},
+  {n:{ru:'Программа снижения веса (3 мес.)',kz:'Салмақ түсіру бағдарламасы'},cat:'prog',sum:'от 180 000 ₸'},
+  {n:{ru:'IV-терапия (курс капельниц)',kz:'IV-терапия курсы'},cat:'prog',sum:'от 95 000 ₸'},
+  {n:{ru:'Справка 075/у',kz:'075/у анықтамасы'},cat:'prog',sum:'от 5 000 ₸'},
+  {n:{ru:'Справка 086/у',kz:'086/у анықтамасы'},cat:'prog',sum:'от 6 000 ₸'}
+];
+var CATS=[
+  {id:'all',ru:'Все',kz:'Барлығы'},
+  {id:'cons',ru:'Консультации',kz:'Кеңестер'},
+  {id:'lab',ru:'Анализы',kz:'Анализдер'},
+  {id:'op',ru:'Операции',kz:'Операциялар'},
+  {id:'prog',ru:'Программы',kz:'Бағдарламалар'}
+];
+
+/* ---------- I18N ---------- */
+var I={
+  ru:{nav_home:'Главная',nav_paid:'Платные услуги',nav_osms:'ОСМС',nav_doctors:'Врачи',nav_price:'Прайс',nav_director:'Письмо директору',
+  callnow:'Звонок бесплатный',book:'Записаться',book_appt:'Записаться на приём',how_attach:'Как прикрепиться',more:'Перейти →',more_g:'Перейти →',
+  stream_paid_h:'Платные услуги и чекапы',stream_paid_p:'Операции, программы здоровья, анализы и узкие специалисты без очередей.',
+  stream_osms_h:'Прикрепление и ОСМС',stream_osms_p:'Бесплатная медицинская помощь по госстраховке с сервисом частной клиники.',
+  s1_tag:'Травматология и ортопедия',s1_h:'Экспертные решения для вашего движения',s1_p:'Современная диагностика и хирургия суставов командой опытных врачей LS Clinic.',
+  s2_tag:'Гинекология',s2_h:'Хирургическая гинекология: экспертность и бережный подход',s2_p:'Малотравматичные операции и внимательное сопровождение на каждом этапе.',
+  s3_tag:'Урология',s3_h:'Урологические операции на уровне ведущих клиник',s3_p:'Точная диагностика и современные методики лечения для мужчин и женщин.',
+  s4_tag:'Материнство',s4_h:'Ведение беременности под защитой профессионалов',s4_p:'Полное сопровождение беременности с заботой о маме и малыше.',
+  s5_tag:'Lifestyle-медицина',s5_h:'Похудение с медицинским контролем (Ozempic / Mounjaro)',s5_p:'Программы снижения веса под наблюдением эндокринолога и индивидуальным планом.',
+  s6_tag:'ОСМС',s6_h:'Прикрепись к нам по ОСМС — частный сервис бесплатно',s6_p:'Получайте помощь по госстраховке в комфорте частной клиники. Прикрепление онлайн за 5 минут.',
+  dir_eye:'Платные направления',dir_h:'Выберите медицинское направление',dir_p:'Каждое направление — это команда профильных врачей, современное оборудование и понятные цены.',
+  d1_h:'Хирургический центр',d1_1:'Травматология и ортопедия',d1_2:'Общая хирургия',d1_3:'Гинекологические операции',d1_4:'Урологические операции',
+  d2_h:'Материнство и детство',d2_1:'Ведение беременности',d2_2:'Детская реабилитация',d2_3:'Коррекция ЗПР и ЗРР',
+  d3_h:'Lifestyle-медицина',d3_1:'IV-терапия (капельницы)',d3_2:'Эндокринология и похудение',d3_3:'Узкие специалисты',
+  d4_h:'B2B и справки',d4_1:'Профосмотры для компаний',d4_2:'Корпоративное обслуживание',d4_3:'Справки 075, 086 и др.',
+  doc_eye:'Наш капитал',doc_h:'Врачи, которым доверяют',doc_p:'Опытные специалисты с многолетней практикой. Запись на консультацию — в один клик.',all_doctors:'Все врачи →',
+  price_eye:'Прозрачные цены',price_h:'Интерактивный прайс',price_p:'Найдите услугу через поиск и закажите обратный звонок прямо из таблицы.',open_price:'Открыть полный прайс →',
+  surg_h:'Хирургический центр LS Clinic',surg_p:'Травматология и ортопедия, общая хирургия, гинекологические и урологические операции. Малотравматичные методики, собственный стационар и сопровождение на всех этапах.',
+  surg1_h:'Травматология и ортопедия',surg1_p:'Эндопротезирование суставов, артроскопия, лечение травм и спортивных повреждений.',
+  surg2_h:'Общая хирургия',surg2_p:'Плановые и малоинвазивные операции с быстрым восстановлением.',
+  surg3_h:'Гинекологические операции',surg3_p:'Бережная хирургия с акцентом на сохранение здоровья и комфорт пациентки.',
+  surg4_h:'Урологические операции',surg4_p:'Современные методы лечения урологических заболеваний у мужчин и женщин.',
+  surg_docs:'Врачи направления',
+  osms_h:'Прикрепление и ОСМС',osms_p:'Прикрепитесь к LS Clinic по ОСМС и получайте бесплатную медицинскую помощь с сервисом частной клиники.',osms_help:'Помощь с прикреплением',
+  osms_steps_eye:'Инструкция',osms_steps_h:'Онлайн-прикрепление через eGov за 5 минут',
+  st1_h:'Войдите на eGov.kz',st1_p:'Авторизуйтесь через ЭЦП или одноразовый пароль по номеру телефона.',
+  st2_h:'Найдите услугу прикрепления',st2_p:'«Прикрепление к организации первичной медико-санитарной помощи».',
+  st3_h:'Выберите LS Clinic',st3_p:'Укажите нашу клинику в списке поликлиник вашего города.',
+  st4_h:'Подтвердите заявку',st4_p:'Готово — прикрепление вступает в силу, мы свяжемся с вами для записи.',
+  free_eye:'Бесплатно по ОСМС',free_h:'Список бесплатных услуг',
+  f1:'Приём терапевта и педиатра',f2:'Приём узких специалистов по направлению',f3:'Лабораторные анализы по показаниям',f4:'УЗИ-диагностика по направлению',f5:'Вакцинация по нацкалендарю',f6:'Ведение беременности',f7:'Наблюдение хронических заболеваний',f8:'Профилактические осмотры',
+  qa_eye:'Жиі қойылатын сұрақтар',qa_h:'Вопросы и ответы: права пациента',
+  q1:'Что я получаю бесплатно по ОСМС?',a1:'Все услуги из гарантированного объёма: приёмы врачей, анализы и диагностику по направлению, ведение беременности и наблюдение хронических болезней.',
+  q2:'За что нужно платить?',a2:'Платными остаются услуги вне программы ОСМС: операции по желанию, расширенные чекапы, IV-терапия, эстетические процедуры и приёмы без направления.',
+  q3:'Можно ли прикрепиться, если я уже в другой поликлинике?',a3:'Да. Открепление происходит автоматически при подаче новой заявки через eGov. Менять поликлинику можно один раз в год.',
+  q4:'Как записаться на приём после прикрепления?',a4:'Позвоните нам или оставьте заявку на сайте — администратор подберёт удобное время к нужному специалисту.',
+  blog_eye:'Блог главного врача',blog_h:'Что важно знать о вашем здоровье',
+  b1_h:'Как выбрать поликлинику по ОСМС',b1_p:'Разбираем критерии выбора и права пациента простыми словами.',
+  b2_h:'Профилактика — лучшее лечение',b2_p:'Какие обследования стоит проходить ежегодно и почему.',
+  b3_h:'Здоровье ребёнка: чек-лист',b3_p:'Календарь осмотров и прививок для детей разного возраста.',
+  docs_h:'Наши врачи',docs_p:'Команда специалистов LS Clinic — опыт, внимание и современные методы лечения.',
+  price_page_h:'Интерактивный прайс',price_page_p:'Найдите услугу и закажите обратный звонок прямо из таблицы.',ph_search:'Поиск услуги или анализа...',
+  dir_page_h:'Письмо директору',dir_page_p:'Ваше мнение помогает нам становиться лучше. Расскажите о качестве обслуживания — обращение читает лично директор клиники.',
+  lbl_name:'Ваше имя',lbl_phone:'Телефон',lbl_msg:'Сообщение',send:'Отправить',send_req:'Отправить заявку',
+  form_h:'Запись на приём',form_sub:'Оставьте контакты — администратор перезвонит и подберёт удобное время.',form_note:'Заявка отправляется на почту администрации и в amoCRM.',
+  ok_h:'Заявка принята!',ok_p:'Мы перезвоним вам в ближайшее время.',ok_btn:'Хорошо',
+  call:'Звонок',book_cons:'Записаться на консультацию',reception:'Приём',more_doctor:'Подробнее о враче →',
+  lbl_spec:'Специализация',lbl_exp:'Опыт',lbl_dir:'Направление',about_doc:'О враче',edu_doc:'Образование',serv_doc:'Что лечит',
+  err_name:'Введите имя (только буквы, минимум 2 символа)',err_phone:'Введите корректный номер: +7 (XXX) XXX-XX-XX',err_msg:'Сообщение должно содержать минимум 10 символов',
+  foot_about:'Многопрофильная клиника в Алматы. Платные направления и помощь по ОСМС.',foot_menu:'Разделы',foot_help:'Сервис',foot_contacts:'Контакты',foot_hours:'Ежедневно 08:00 — 20:00',rights:'Все права защищены.',license:'Лицензия на медицинскую деятельность №ДА-00000'},
+
+  kz:{nav_home:'Басты бет',nav_paid:'Ақылы қызметтер',nav_osms:'МӘМС',nav_doctors:'Дәрігерлер',nav_price:'Бағалар',nav_director:'Директорға хат',
+  callnow:'Қоңырау тегін',book:'Жазылу',book_appt:'Қабылдауға жазылу',how_attach:'Қалай тіркелу',more:'Өту →',more_g:'Өту →',
+  stream_paid_h:'Ақылы қызметтер және чекаптар',stream_paid_p:'Операциялар, денсаулық бағдарламалары, анализдер және мамандар — кезексіз.',
+  stream_osms_h:'Тіркелу және МӘМС',stream_osms_p:'Жекеменшік клиника сервисімен мемлекеттік сақтандыру бойынша тегін көмек.',
+  s1_tag:'Травматология және ортопедия',s1_h:'Қозғалысыңызға сараптамалық шешімдер',s1_p:'LS Clinic тәжірибелі дәрігерлерінің заманауи диагностикасы мен буын хирургиясы.',
+  s2_tag:'Гинекология',s2_h:'Хирургиялық гинекология: сараптама және ұқыпты көзқарас',s2_p:'Аз жарақатты операциялар және әр кезеңде мұқият қолдау.',
+  s3_tag:'Урология',s3_h:'Жетекші клиникалар деңгейіндегі урологиялық операциялар',s3_p:'Дәл диагностика және ерлер мен әйелдерге арналған заманауи емдеу әдістері.',
+  s4_tag:'Аналық',s4_h:'Жүктілікті мамандар қорғауында жүргізу',s4_p:'Ана мен сәбиге қамқорлықпен жүктілікті толық сүйемелдеу.',
+  s5_tag:'Lifestyle-медицина',s5_h:'Медициналық бақылаумен салмақ түсіру (Ozempic / Mounjaro)',s5_p:'Эндокринолог бақылауымен жеке жоспар бойынша салмақ түсіру бағдарламалары.',
+  s6_tag:'МӘМС',s6_h:'МӘМС бойынша бізге тіркелің — жеке сервис тегін',s6_p:'Жекеменшік клиника жайлылығында мемлекеттік сақтандыру бойынша көмек алыңыз. Онлайн тіркелу 5 минут.',
+  dir_eye:'Ақылы бағыттар',dir_h:'Медициналық бағытты таңдаңыз',dir_p:'Әр бағыт — бейінді дәрігерлер тобы, заманауи жабдық және түсінікті бағалар.',
+  d1_h:'Хирургиялық орталық',d1_1:'Травматология және ортопедия',d1_2:'Жалпы хирургия',d1_3:'Гинекологиялық операциялар',d1_4:'Урологиялық операциялар',
+  d2_h:'Аналық және балалық',d2_1:'Жүктілікті жүргізу',d2_2:'Балалар реабилитациясы',d2_3:'ПДА және СДА түзету',
+  d3_h:'Lifestyle-медицина',d3_1:'IV-терапия (тамшылатқыштар)',d3_2:'Эндокринология және салмақ түсіру',d3_3:'Тар мамандар',
+  d4_h:'B2B және анықтамалар',d4_1:'Компанияларға профосмотр',d4_2:'Корпоративтік қызмет көрсету',d4_3:'075, 086 және басқа анықтамалар',
+  doc_eye:'Біздің капитал',doc_h:'Сенім артатын дәрігерлер',doc_p:'Көпжылдық тәжірибесі бар мамандар. Кеңеске жазылу — бір рет басу.',all_doctors:'Барлық дәрігерлер →',
+  price_eye:'Ашық бағалар',price_h:'Интерактивті бағалар',price_p:'Іздеу арқылы қызметті тауып, кестеден кері қоңырауға тапсырыс беріңіз.',open_price:'Толық бағаны ашу →',
+  surg_h:'LS Clinic хирургиялық орталығы',surg_p:'Травматология және ортопедия, жалпы хирургия, гинекологиялық және урологиялық операциялар. Аз жарақатты әдістер, өз стационары және барлық кезеңдерде қолдау.',
+  surg1_h:'Травматология және ортопедия',surg1_p:'Буындарды эндопротездеу, артроскопия, жарақаттар мен спорттық зақымдарды емдеу.',
+  surg2_h:'Жалпы хирургия',surg2_p:'Жоспарлы және аз инвазивті операциялар, жылдам қалпына келу.',
+  surg3_h:'Гинекологиялық операциялар',surg3_p:'Денсаулықты сақтауға бағытталған ұқыпты хирургия.',
+  surg4_h:'Урологиялық операциялар',surg4_p:'Ерлер мен әйелдердегі урологиялық ауруларды емдеудің заманауи әдістері.',
+  surg_docs:'Бағыт дәрігерлері',
+  osms_h:'Тіркелу және МӘМС',osms_p:'LS Clinic-ке МӘМС бойынша тіркеліп, жекеменшік клиника сервисімен тегін медициналық көмек алыңыз.',osms_help:'Тіркелуге көмек',
+  osms_steps_eye:'Нұсқаулық',osms_steps_h:'eGov арқылы 5 минутта онлайн тіркелу',
+  st1_h:'eGov.kz-ке кіріңіз',st1_p:'ЭЦҚ немесе телефон нөмірі бойынша бір реттік құпиясөзбен авторизациялаңыз.',
+  st2_h:'Тіркелу қызметін табыңыз',st2_p:'«Алғашқы медициналық-санитариялық көмек ұйымына тіркелу».',
+  st3_h:'LS Clinic таңдаңыз',st3_p:'Қалаңыздағы емханалар тізімінен біздің клиниканы көрсетіңіз.',
+  st4_h:'Өтінішті растаңыз',st4_p:'Дайын — тіркелу күшіне енеді, жазылу үшін сізбен хабарласамыз.',
+  free_eye:'МӘМС бойынша тегін',free_h:'Тегін қызметтер тізімі',
+  f1:'Терапевт пен педиатр қабылдауы',f2:'Жолдама бойынша мамандар қабылдауы',f3:'Көрсетілім бойынша зертханалық анализдер',f4:'Жолдама бойынша УДЗ диагностикасы',f5:'Ұлттық күнтізбе бойынша вакцинация',f6:'Жүктілікті жүргізу',f7:'Созылмалы ауруларды бақылау',f8:'Профилактикалық тексерулер',
+  qa_eye:'Жиі қойылатын сұрақтар',qa_h:'Сұрақтар мен жауаптар: пациент құқықтары',
+  q1:'МӘМС бойынша не тегін аламын?',a1:'Кепілдендірілген көлемдегі барлық қызметтер: дәрігер қабылдауы, жолдама бойынша анализдер мен диагностика, жүктілікті жүргізу және созылмалы ауруларды бақылау.',
+  q2:'Не үшін төлеу керек?',a2:'МӘМС бағдарламасынан тыс қызметтер ақылы: қалау бойынша операциялар, кеңейтілген чекаптар, IV-терапия, эстетикалық процедуралар және жолдамасыз қабылдаулар.',
+  q3:'Басқа емханада тұрсам, тіркеле аламын ба?',a3:'Иә. eGov арқылы жаңа өтініш бергенде ажырату автоматты түрде жүреді. Емхананы жылына бір рет ауыстыруға болады.',
+  q4:'Тіркелгеннен кейін қалай жазыламын?',a4:'Бізге қоңырау шалыңыз немесе сайтта өтініш қалдырыңыз — әкімші ыңғайлы уақытты таңдайды.',
+  blog_eye:'Бас дәрігер блогы',blog_h:'Денсаулығыңыз туралы білу маңызды',
+  b1_h:'МӘМС бойынша емхананы қалай таңдау',b1_p:'Таңдау критерийлері мен пациент құқықтарын қарапайым тілмен талдаймыз.',
+  b2_h:'Профилактика — ең жақсы ем',b2_p:'Жыл сайын қандай тексерулерден өту керек және неге.',
+  b3_h:'Бала денсаулығы: чек-парақ',b3_p:'Әртүрлі жастағы балаларға арналған тексеру және егу күнтізбесі.',
+  docs_h:'Біздің дәрігерлер',docs_p:'LS Clinic мамандар тобы — тәжірибе, көңіл бөлу және заманауи емдеу әдістері.',
+  price_page_h:'Интерактивті бағалар',price_page_p:'Қызметті тауып, кестеден кері қоңырауға тапсырыс беріңіз.',ph_search:'Қызмет немесе анализ іздеу...',
+  dir_page_h:'Директорға хат',dir_page_p:'Сіздің пікіріңіз бізге жақсаруға көмектеседі. Қызмет сапасы туралы айтыңыз — өтінішті клиника директоры өзі оқиды.',
+  lbl_name:'Атыңыз',lbl_phone:'Телефон',lbl_msg:'Хабарлама',send:'Жіберу',send_req:'Өтініш жіберу',
+  form_h:'Қабылдауға жазылу',form_sub:'Байланыс қалдырыңыз — әкімші қайта қоңырау шалып, ыңғайлы уақытты таңдайды.',form_note:'Өтініш әкімшілік поштасына және amoCRM-ге жіберіледі.',
+  ok_h:'Өтініш қабылданды!',ok_p:'Жақын арада сізге қоңырау шаламыз.',ok_btn:'Жақсы',
+  call:'Қоңырау',book_cons:'Кеңеске жазылу',reception:'Қабылдау',more_doctor:'Дәрігер туралы толық →',
+  lbl_spec:'Мамандануы',lbl_exp:'Тәжірибесі',lbl_dir:'Бағыты',about_doc:'Дәрігер туралы',edu_doc:'Білімі',serv_doc:'Нені емдейді',
+  err_name:'Атыңызды енгізіңіз (тек әріптер, кемінде 2 таңба)',err_phone:'Дұрыс нөмір енгізіңіз: +7 (XXX) XXX-XX-XX',err_msg:'Хабарлама кемінде 10 таңбадан тұруы керек',
+  foot_about:'Алматыдағы көпбейінді клиника. Ақылы бағыттар және МӘМС бойынша көмек.',foot_menu:'Бөлімдер',foot_help:'Сервис',foot_contacts:'Байланыс',foot_hours:'Күн сайын 08:00 — 20:00',rights:'Барлық құқықтар қорғалған.',license:'Медициналық қызметке лицензия №ДА-00000'}
+};
+
+var lang='ru';
+function setLang(l,btn){
+  lang=l;
+  document.querySelectorAll('.lang button').forEach(function(b){b.classList.remove('on')});
+  if(btn)btn.classList.add('on');
+  applyLang();
+  renderDoctors(); renderPrice(); buildTabs();
+}
+function applyLang(){
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var k=el.getAttribute('data-i18n'); if(I[lang][k])el.textContent=I[lang][k];
+  });
+  document.querySelectorAll('[data-i18n-ph]').forEach(function(el){
+    var k=el.getAttribute('data-i18n-ph'); if(I[lang][k])el.setAttribute('placeholder',I[lang][k]);
+  });
+  document.documentElement.lang=lang;
+}
+
+/* ---------- NAV ---------- */
+function go(p){
+  document.querySelectorAll('.page').forEach(function(x){x.classList.remove('active')});
+  var el=document.getElementById('page-'+p); if(el)el.classList.add('active');
+  document.querySelectorAll('nav.main a').forEach(function(a){a.classList.remove('active')});
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function toggleMob(s){document.getElementById('mobNav').classList.toggle('show',s)}
+
+/* ---------- SLIDER ---------- */
+var cur=0, slides=document.querySelectorAll('.slide'), timer;
+var dotsNav=document.getElementById('dotsNav');
+slides.forEach(function(_,i){var b=document.createElement('button');if(i===0)b.classList.add('on');b.onclick=function(){goSlide(i)};dotsNav.appendChild(b)});
+function goSlide(i){
+  slides[cur].classList.remove('on'); dotsNav.children[cur].classList.remove('on');
+  cur=(i+slides.length)%slides.length;
+  slides[cur].classList.add('on'); dotsNav.children[cur].classList.add('on');
+}
+function slide(d){goSlide(cur+d); resetTimer()}
+function resetTimer(){clearInterval(timer); timer=setInterval(function(){goSlide(cur+1)},6000)}
+resetTimer();
+
+/* ---------- DOCTORS RENDER ---------- */
+function docCard(d){
+  var i=DOCTORS.indexOf(d);
+  return '<div class="doc"><div class="ph" onclick="openDoctor('+i+')">'+d.init+'</div><div class="body">'+
+  '<h4 onclick="openDoctor('+i+')">'+d.name[lang]+'</h4><div class="spec">'+d.spec[lang]+'</div>'+
+  '<div class="meta">'+d.exp[lang]+'</div><div class="meta">'+I[lang].reception+': '+d.price+'</div>'+
+  '<button class="btn btn-green btn-sm" style="width:100%;justify-content:center;margin-top:6px" onclick="openForm()">'+I[lang].book_cons+'</button>'+
+  '<span class="more-link" onclick="openDoctor('+i+')">'+I[lang].more_doctor+'</span></div></div>';
+}
+function openDoctor(i){
+  var d=DOCTORS[i];
+  document.getElementById('dpCrumb').textContent=d.name[lang];
+  document.getElementById('docProfile').innerHTML=
+    '<div class="dp dp-grid">'+
+    '<div><div class="dp-photo">'+d.init+'</div>'+
+      '<div class="dp-card">'+
+        '<div class="row"><span>'+I[lang].lbl_spec+'</span><b>'+d.spec[lang]+'</b></div>'+
+        '<div class="row"><span>'+I[lang].lbl_exp+'</span><b>'+d.exp[lang]+'</b></div>'+
+        '<div class="row"><span>'+I[lang].reception+'</span><b>'+d.price+'</b></div>'+
+        '<div class="row"><span>'+I[lang].lbl_dir+'</span><b>'+d.cat[lang]+'</b></div>'+
+      '</div>'+
+      '<button class="btn btn-red" style="width:100%;justify-content:center;margin-top:14px" onclick="openForm()">'+I[lang].book_cons+'</button>'+
+    '</div>'+
+    '<div><h1>'+d.name[lang]+'</h1><div class="spec">'+d.spec[lang]+'</div>'+
+      '<h3>'+I[lang].about_doc+'</h3><p>'+d.bio[lang]+'</p>'+
+      '<h3>'+I[lang].edu_doc+'</h3><p>'+d.edu[lang]+'</p>'+
+      '<h3>'+I[lang].serv_doc+'</h3><ul class="serv-list">'+d.serv[lang].map(function(s){return '<li>'+s+'</li>'}).join('')+'</ul>'+
+    '</div></div>';
+  go('doctor');
+}
+function renderDoctors(){
+  var home=document.getElementById('docGridHome'); if(home)home.innerHTML=DOCTORS.slice(0,4).map(docCard).join('');
+  var all=document.getElementById('docGridAll'); if(all)all.innerHTML=DOCTORS.map(docCard).join('');
+  var surg=document.getElementById('docGridSurg'); if(surg)surg.innerHTML=DOCTORS.filter(function(d){return d.tag==='surg'}).map(docCard).join('');
+}
+
+/* ---------- PRICE RENDER ---------- */
+var curCat='all';
+function buildTabs(){
+  var t=document.getElementById('priceTabs'); if(!t)return;
+  t.innerHTML=CATS.map(function(c){return '<button class="'+(c.id===curCat?'on':'')+'" onclick="setCat(\''+c.id+'\')">'+c[lang]+'</button>'}).join('');
+}
+function setCat(c){
+  curCat=c;
+  var t=document.getElementById('priceTabs');
+  if(t)Array.prototype.forEach.call(t.children,function(b,i){b.classList.toggle('on',CATS[i]&&CATS[i].id===c)});
+  renderPrice();
+}
+function renderPrice(){
+  var tbl=document.getElementById('priceTable'); if(!tbl)return;
+  var q=(document.getElementById('priceSearch')||{value:''}).value.toLowerCase();
+  var rows=PRICE.filter(function(p){
+    var okCat=curCat==='all'||p.cat===curCat;
+    var okQ=!q||p.n.ru.toLowerCase().indexOf(q)>-1||p.n.kz.toLowerCase().indexOf(q)>-1;
+    return okCat&&okQ;
+  });
+  var catName={}; CATS.forEach(function(c){catName[c.id]=c[lang]});
+  if(!rows.length){tbl.innerHTML='<div class="price-empty">'+(lang==='ru'?'Ничего не найдено':'Ештеңе табылмады')+'</div>';return}
+  tbl.innerHTML=rows.map(function(p){
+    return '<div class="price-row"><div><div class="name">'+p.n[lang]+'</div>'+(p.cat!=='all'?'<span class="cat">'+catName[p.cat]+'</span>':'')+'</div>'+
+    '<div class="sum">'+p.sum+'</div>'+
+    '<button class="btn btn-red btn-sm" onclick="openForm()">📞 '+I[lang].call+'</button></div>';
+  }).join('');
+}
+
+/* ---------- FORMS ---------- */
+function openForm(){var m=document.getElementById('modal');m.classList.add('show'); document.getElementById('formBody').style.display='block'; document.getElementById('formOk').style.display='none'; clearVal('fName');clearVal('fPhone');}
+function closeForm(){document.getElementById('modal').classList.remove('show')}
+
+/* ----- PHONE MASK ----- */
+function maskPhone(v){
+  v=v.replace(/^\s*\+?7/,'');
+  var d=v.replace(/\D/g,'');
+  if(d.length>10&&(d.charAt(0)==='7'||d.charAt(0)==='8'))d=d.slice(1);
+  d=d.slice(0,10);
+  var out='+7';
+  if(d.length>0)out+=' ('+d.slice(0,3);
+  if(d.length>3)out+=') '+d.slice(3,6);
+  if(d.length>6)out+='-'+d.slice(6,8);
+  if(d.length>8)out+='-'+d.slice(8,10);
+  return out;
+}
+/* ----- VALIDATORS ----- */
+var reName=/^[A-Za-zА-Яа-яЁёӘәҒғҚқҢңӨөҰұҮүҺһІі\s'’\-]{2,}$/;
+function checkVal(id){
+  var el=document.getElementById(id); if(!el)return true;
+  var type=el.getAttribute('data-val'), v=el.value.trim(), ok=true, msg='';
+  if(type==='name'){ ok=reName.test(v); msg=I[lang].err_name; }
+  else if(type==='phone'){ ok=v.replace(/\D/g,'').length===11; msg=I[lang].err_phone; }
+  else if(type==='msg'){ ok=v.length>=10; msg=I[lang].err_msg; }
+  var err=document.getElementById(id+'-err');
+  if(ok){ el.classList.remove('invalid'); el.classList.add('valid'); if(err){err.classList.remove('show');err.textContent='';} }
+  else { el.classList.add('invalid'); el.classList.remove('valid'); if(err){err.textContent=msg;err.classList.add('show');} }
+  return ok;
+}
+function clearVal(id){
+  var el=document.getElementById(id); if(!el)return;
+  el.value=''; el.classList.remove('invalid','valid');
+  var err=document.getElementById(id+'-err'); if(err){err.classList.remove('show');err.textContent='';}
+}
+function validateForm(ids){ var ok=true; ids.forEach(function(id){ if(!checkVal(id))ok=false; }); return ok; }
+
+function submitForm(e){
+  e.preventDefault();
+  if(!validateForm(['fName','fPhone']))return;
+  document.getElementById('formBody').style.display='none';
+  document.getElementById('formOk').style.display='block';
+}
+function submitDirector(e){
+  e.preventDefault();
+  if(!validateForm(['dName','dPhone','dMsg']))return;
+  alert(lang==='ru'?'Спасибо! Ваше обращение отправлено директору.':'Рахмет! Өтінішіңіз директорға жіберілді.');
+  e.target.reset(); ['dName','dPhone','dMsg'].forEach(function(id){var el=document.getElementById(id);el.classList.remove('valid','invalid');var er=document.getElementById(id+'-err');if(er)er.classList.remove('show');});
+}
+document.getElementById('modal').addEventListener('click',function(e){if(e.target===this)closeForm()});
+
+/* ----- BIND MASK + LIVE VALIDATION ----- */
+function natDigits(v){return v.replace(/^\s*\+?7/,'').replace(/\D/g,'');}
+document.addEventListener('focusin',function(e){
+  var t=e.target;
+  if(t.getAttribute&&t.getAttribute('data-val')==='phone'&&natDigits(t.value)===''){ t.value='+7 '; }
+});
+document.addEventListener('input',function(e){
+  var t=e.target;
+  if(t.getAttribute&&t.getAttribute('data-val')==='phone'){
+    var atEnd=t.selectionStart>=t.value.length;
+    t.value=maskPhone(t.value);
+    if(atEnd)try{t.setSelectionRange(t.value.length,t.value.length);}catch(x){}
+  }
+  if(t.getAttribute&&t.getAttribute('data-val')&&t.classList.contains('invalid')){ checkVal(t.id); }
+});
+document.addEventListener('blur',function(e){
+  var t=e.target;
+  if(!(t.getAttribute&&t.getAttribute('data-val')))return;
+  if(t.getAttribute('data-val')==='phone'&&natDigits(t.value)===''){
+    t.value=''; t.classList.remove('valid','invalid');
+    var er=document.getElementById(t.id+'-err'); if(er)er.classList.remove('show'); return;
+  }
+  if(t.value.trim()!=='')checkVal(t.id);
+},true);
+
+/* ---------- INIT ---------- */
+buildTabs(); renderPrice(); renderDoctors(); applyLang();
+</script>
+</body>
+</html>
