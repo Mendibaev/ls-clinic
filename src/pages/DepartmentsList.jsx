@@ -6,8 +6,8 @@ import { departments } from '../data/departments.js'
 export default function DepartmentsList() {
   return (
     <div className="container py-10">
-      <Breadcrumbs items={[{ label: 'Главная', href: '/' }, { label: 'Отделения' }]} />
-      <h1 className="mb-6 font-display text-3xl text-ink">Отделения</h1>
+      <Breadcrumbs items={[{ label: 'Главная', href: '/' }, { label: 'Направления' }]} />
+      <h1 className="mb-6 font-display text-3xl text-ink">Направления</h1>
 
       <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
         {departments.map((d) => (

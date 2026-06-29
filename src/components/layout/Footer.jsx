@@ -21,21 +21,29 @@ const columns = [
     ],
   },
   {
-    title: 'Отделения',
+    title: 'Филиалы',
     links: [
-      ['Хирургия', '/otdeleniya/hirurgiya'],
-      ['Кардиология', '/otdeleniya/kardiologiya'],
-      ['Все отделения', '/otdeleniya'],
+      ['LS Clinic Брусиловского', '/filialy/brusilovskogo'],
+      ['LS Clinic Бухар Жырау', '/filialy/buhar-zhyrau'],
+      ['Все филиалы', '/filialy'],
+    ],
+  },
+  {
+    title: 'Направления',
+    links: [
+      ['Травматология', '/otdeleniya/travmatologiya'],
+      ['Гинекология', '/otdeleniya/ginekologiya'],
+      ['Все направления', '/otdeleniya'],
     ],
   },
   {
     title: 'Пациентам',
     links: [
-      ['О клинике', '/o-klinike'],
-      ['Специалисты', '/specialisty'],
-      ['Акции', '/akcii-i-specpredlozheniya'],
-      ['Новости', '/infocentr'],
-      ['Карьера', '/karera'],
+      ['Врачи', '/specialisty'],
+      ['ПМСП и ОСМС', '/lechenie-gombp-i-osms'],
+      ['Check-up', '/uslugi'],
+      ['Отзывы', '/zhaloby-i-predlozheniya'],
+      ['Блог', '/infocentr'],
       ['Контакты', '/kontakty'],
     ],
   },

@@ -14,6 +14,8 @@ import DoctorProfile from './pages/DoctorProfile.jsx'
 import DepartmentsList from './pages/DepartmentsList.jsx'
 import DepartmentDetail from './pages/DepartmentDetail.jsx'
 import DepartmentSub from './pages/DepartmentSub.jsx'
+import BranchesList from './pages/BranchesList.jsx'
+import BranchDetail from './pages/BranchDetail.jsx'
 import Analizy from './pages/Analizy.jsx'
 import AboutClinic from './pages/AboutClinic.jsx'
 import Contacts from './pages/Contacts.jsx'
@@ -46,9 +48,16 @@ export default function App() {
             <Route path="/specialisty" element={<SpecialistsList />} />
             <Route path="/specialisty/:slug" element={<DoctorProfile />} />
 
+            <Route path="/filialy" element={<BranchesList />} />
+            <Route path="/filialy/:slug" element={<BranchDetail />} />
+
             <Route path="/otdeleniya" element={<DepartmentsList />} />
             <Route path="/otdeleniya/:slug" element={<DepartmentDetail />} />
             <Route path="/otdeleniya/:slug/:sub" element={<DepartmentSub />} />
+            {/* Алиасы для нового раздела «Направления» */}
+            <Route path="/napravleniya" element={<DepartmentsList />} />
+            <Route path="/napravleniya/:slug" element={<DepartmentDetail />} />
+            <Route path="/napravleniya/:slug/:sub" element={<DepartmentSub />} />
 
             <Route path="/analizy" element={<Analizy />} />
             <Route path="/o-klinike" element={<AboutClinic />} />

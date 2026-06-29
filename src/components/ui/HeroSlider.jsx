@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { useAppointmentModal } from '../../context/AppointmentModalContext.jsx'
 import PrimaryButton from './PrimaryButton.jsx'
@@ -6,8 +7,9 @@ import PrimaryButton from './PrimaryButton.jsx'
 const slides = [
   {
     eyebrow: 'LS Clinic Almaty',
-    title: 'Многопрофильная клиника международного уровня',
-    caption: 'Более 100 врачей · приём ежедневно 08:00–20:00',
+    title: 'LS Clinic — сеть медицинских центров в Алматы',
+    caption:
+      '2 филиала в удобных районах города. Диагностика, лечение, операции, реабилитация и прикрепление по ОСМС.',
   },
   {
     eyebrow: 'Специалисты',
@@ -47,9 +49,17 @@ export default function HeroSlider() {
       <div className="container relative py-16 sm:py-24">
         <p className="text-sm font-semibold uppercase tracking-wide text-amber-light">{slide.eyebrow}</p>
         <h1 className="mt-3 max-w-2xl font-display text-3xl leading-tight sm:text-5xl">{slide.title}</h1>
-        <p className="mt-4 max-w-md text-white/80">{slide.caption}</p>
+        <p className="mt-4 max-w-xl text-white/80">{slide.caption}</p>
         <div className="mt-8 flex flex-wrap items-center gap-4">
           <PrimaryButton onClick={() => open()}>Записаться на прием</PrimaryButton>
+          <Link to="/lechenie-gombp-i-osms">
+            <button
+              type="button"
+              className="inline-flex items-center justify-center rounded-full border border-white/40 px-6 py-3 text-[15px] font-semibold text-white transition-colors hover:bg-white/10"
+            >
+              Прикрепиться по ОСМС
+            </button>
+          </Link>
           <div className="flex items-center gap-2">
             {slides.map((s, i) => (
               <button

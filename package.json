@@ -6,18 +6,28 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "studio": "sanity dev",
+    "studio:build": "sanity build",
+    "studio:deploy": "sanity deploy",
+    "import": "node scripts/importToSanity.mjs"
   },
   "dependencies": {
+    "@sanity/client": "^6.22.5",
+    "@sanity/image-url": "^1.1.0",
     "lucide-react": "^0.383.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.24.1"
   },
   "devDependencies": {
+    "@sanity/vision": "^3.66.1",
     "@vitejs/plugin-react": "^4.3.1",
     "autoprefixer": "^10.4.19",
     "postcss": "^8.4.39",
+    "react-icons": "^5.4.0",
+    "sanity": "^3.66.1",
+    "styled-components": "^6.1.13",
     "tailwindcss": "^3.4.4",
     "vite": "^5.3.1"
   }

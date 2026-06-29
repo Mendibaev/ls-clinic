@@ -1,10 +1,11 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ChevronDown, MapPin, Phone, X } from 'lucide-react'
-import { serviceCategories } from '../../data/services.js'
 import { schedule } from '../../data/schedule.js'
 import { departments } from '../../data/departments.js'
+import { branches } from '../../data/branches.js'
 import { addresses } from '../../data/clinicInfo.js'
+import { useAppointmentModal } from '../../context/AppointmentModalContext.jsx'
 import LanguageSwitcher from './LanguageSwitcher.jsx'
 
 function AccordionSection({ title, items, basePath, onNavigate }) {
@@ -40,6 +41,7 @@ function AccordionSection({ title, items, basePath, onNavigate }) {
 }
 
 export default function MobileMenu({ onClose }) {
+  const { open } = useAppointmentModal()
   return (
     <div className="fixed inset-0 z-50 flex justify-end bg-ink/50 lg:hidden" onClick={onClose}>
       <div
@@ -69,14 +71,19 @@ export default function MobileMenu({ onClose }) {
           <Phone className="h-4 w-4" aria-hidden="true" /> +7 (727) 339-99-00
         </p>
 
-        <AccordionSection title="Услуги" items={serviceCategories} basePath="/uslugi" onNavigate={onClose} />
-        <AccordionSection title="Отделения" items={departments} basePath="/otdeleniya" onNavigate={onClose} />
+        <Link to="/" onClick={onClose} className="border-b border-line py-3 text-sm font-semibold text-ink">
+          Главная
+        </Link>
+        <AccordionSection title="Филиалы" items={branches} basePath="/filialy" onNavigate={onClose} />
+        <AccordionSection title="Направления" items={departments} basePath="/otdeleniya" onNavigate={onClose} />
 
         <div className="flex flex-col">
           {[
-            ['Анализы', '/analizy'],
-            ['Специалисты', '/specialisty'],
-            ['О клинике', '/o-klinike'],
+            ['Врачи', '/specialisty'],
+            ['ПМСП и ОСМС', '/lechenie-gombp-i-osms'],
+            ['Check-up', '/uslugi'],
+            ['Отзывы', '/zhaloby-i-predlozheniya'],
+            ['Блог', '/infocentr'],
             ['Контакты', '/kontakty'],
           ].map(([label, href]) => (
             <Link
@@ -89,6 +96,17 @@ export default function MobileMenu({ onClose }) {
             </Link>
           ))}
         </div>
+
+        <button
+          type="button"
+          onClick={() => {
+            onClose()
+            open()
+          }}
+          className="mt-4 w-full rounded-full bg-amber px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-amber-deep"
+        >
+          Онлайн запись
+        </button>
 
         <details className="mt-3">
           <summary className="cursor-pointer py-2 text-sm font-semibold text-ink">График работы</summary>

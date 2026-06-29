@@ -32,7 +32,7 @@ export default function DepartmentDetail() {
     <div>
       <div className="bg-teal-deep py-12 text-white">
         <div className="container">
-          <Breadcrumbs items={[{ label: 'Главная', href: '/' }, { label: 'Отделения', href: '/otdeleniya' }, { label: department.name }]} />
+          <Breadcrumbs items={[{ label: 'Главная', href: '/' }, { label: 'Направления', href: '/otdeleniya' }, { label: department.name }]} />
           <h1 className="font-display text-3xl sm:text-4xl">{department.name}</h1>
           <p className="mt-3 max-w-xl text-white/80">{department.summary}</p>
           <PrimaryButton className="mt-6" onClick={() => open(department.name)}>

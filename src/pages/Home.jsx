@@ -1,13 +1,14 @@
 import { Link } from 'react-router-dom'
+import { ArrowRight } from 'lucide-react'
 import HeroSlider from '../components/ui/HeroSlider.jsx'
 import SectionCarousel from '../components/ui/SectionCarousel.jsx'
-import LinkCard from '../components/ui/LinkCard.jsx'
+import BranchCard from '../components/ui/BranchCard.jsx'
 import DoctorCard from '../components/ui/DoctorCard.jsx'
 import PromoCard from '../components/ui/PromoCard.jsx'
 import NewsCard from '../components/ui/NewsCard.jsx'
 import PrimaryButton from '../components/ui/PrimaryButton.jsx'
-import { departments } from '../data/departments.js'
-import { serviceCategories } from '../data/services.js'
+import { branches } from '../data/branches.js'
+import { networkDirections } from '../data/departments.js'
 import { doctors } from '../data/doctors.js'
 import { promos, news, partners } from '../data/schedule.js'
 import { useAppointmentModal } from '../context/AppointmentModalContext.jsx'
@@ -19,59 +20,87 @@ export default function Home() {
     <div>
       <HeroSlider />
 
-      <SectionCarousel title="Наши отделения" viewAllHref="/otdeleniya">
-        {departments.slice(0, 8).map((d) => (
-          <div key={d.slug} className="snap-item w-64 shrink-0">
-            <LinkCard to={`/otdeleniya/${d.slug}`} title={d.name} summary={d.summary} />
+      {/* Блок 2. Наши филиалы */}
+      <section className="py-10 sm:py-14">
+        <div className="container">
+          <div className="mb-6 flex items-end justify-between gap-4">
+            <h2 className="font-display text-2xl text-ink sm:text-3xl">Наши филиалы</h2>
+            <Link to="/filialy" className="hidden text-sm font-semibold text-teal hover:text-teal-deep sm:inline">
+              Все →
+            </Link>
           </div>
-        ))}
-      </SectionCarousel>
+          <div className="grid gap-6 lg:grid-cols-2">
+            {branches.map((branch) => (
+              <BranchCard key={branch.slug} branch={branch} />
+            ))}
+          </div>
+        </div>
+      </section>
 
-      <SectionCarousel title="Наши услуги" viewAllHref="/uslugi">
-        {serviceCategories.map((c) => (
-          <div key={c.slug} className="snap-item w-64 shrink-0">
-            <LinkCard to={`/uslugi/${c.slug}`} title={c.name} summary={c.summary} />
+      {/* Блок 3. Направления сети */}
+      <section className="bg-white py-10 sm:py-14">
+        <div className="container">
+          <div className="mb-6 flex items-end justify-between gap-4">
+            <h2 className="font-display text-2xl text-ink sm:text-3xl">Направления сети</h2>
+            <Link to="/otdeleniya" className="hidden text-sm font-semibold text-teal hover:text-teal-deep sm:inline">
+              Все →
+            </Link>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {networkDirections.map((d) => (
+              <Link
+                key={d.slug + d.name}
+                to={`/otdeleniya/${d.slug}`}
+                className="group flex items-center justify-between gap-3 rounded-card border border-line bg-white px-4 py-3 text-sm font-medium text-ink transition-all duration-150 hover:-translate-y-0.5 hover:border-teal/40 hover:shadow-card"
+              >
+                {d.name}
+                <ArrowRight
+                  className="h-4 w-4 shrink-0 text-muted transition-colors group-hover:text-teal"
+                  aria-hidden="true"
+                />
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <SectionCarousel title="Специалисты" viewAllHref="/specialisty">
+        {doctors.slice(0, 8).map((doctor) => (
+          <div key={doctor.slug} className="snap-item w-64 shrink-0">
+            <DoctorCard doctor={doctor} />
           </div>
         ))}
       </SectionCarousel>
 
       <div className="bg-white">
-        <SectionCarousel title="Специалисты" viewAllHref="/specialisty">
-          {doctors.slice(0, 8).map((doctor) => (
-            <div key={doctor.slug} className="snap-item w-64 shrink-0">
-              <DoctorCard doctor={doctor} />
+        <SectionCarousel title="Акции и спецпредложения" viewAllHref="/akcii-i-specpredlozheniya">
+          {promos.map((promo) => (
+            <div key={promo.slug} className="snap-item shrink-0">
+              <PromoCard to={`/akcii-i-specpredlozheniya/${promo.slug}`} title={promo.title} />
             </div>
           ))}
         </SectionCarousel>
       </div>
 
-      <SectionCarousel title="Акции и спецпредложения" viewAllHref="/akcii-i-specpredlozheniya">
-        {promos.map((promo) => (
-          <div key={promo.slug} className="snap-item shrink-0">
-            <PromoCard to={`/akcii-i-specpredlozheniya/${promo.slug}`} title={promo.title} />
-          </div>
-        ))}
-      </SectionCarousel>
-
       <section className="py-10 sm:py-14">
         <div className="container">
           <div className="flex flex-col items-start justify-between gap-6 rounded-card bg-amber-light p-8 sm:flex-row sm:items-center">
             <div>
-              <h2 className="font-display text-2xl text-ink">Лечение по ГОБМП и ОСМС</h2>
+              <h2 className="font-display text-2xl text-ink">ПМСП и ОСМС</h2>
               <p className="mt-2 max-w-xl text-sm text-muted">
-                Бесплатная медицинская помощь по государственным программам гарантированного объёма
-                и обязательного социального медицинского страхования.
+                Прикрепитесь к LS Clinic и получайте первичную медико-санитарную помощь по
+                обязательному социальному медицинскому страхованию.
               </p>
             </div>
             <Link to="/lechenie-gombp-i-osms">
-              <PrimaryButton size="sm">Подробнее</PrimaryButton>
+              <PrimaryButton size="sm">Прикрепиться по ОСМС</PrimaryButton>
             </Link>
           </div>
         </div>
       </section>
 
       <div className="bg-white">
-        <SectionCarousel title="Инфоцентр" viewAllHref="/infocentr">
+        <SectionCarousel title="Блог" viewAllHref="/infocentr">
           {news.map((item) => (
             <div key={item.slug} className="snap-item shrink-0">
               <NewsCard to={`/infocentr/${item.slug}`} title={item.title} excerpt={item.excerpt} />
